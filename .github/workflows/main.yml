@@ -1,2 +1,25 @@
-- name: GitHub Pages action
-  uses: peaceiris/actions-gh-pages@v3.9.2
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch name to trigger deployment
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test folder
+      uses: datalbry/copy_folder_to_another_repo_action@1.0.0
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_folder: 'test_files'
+        destination_repo: 'dmnemec/release-test'
+        destination_folder: 'test-dir'
+        user_email: 'devin.nemec@gmail.com'
+        user_name: 'dmnemec'
+        commit_msg: '[GHA] Update the test files.'
