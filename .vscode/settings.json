@@ -3,6 +3,7 @@
         "andstor",
         "dmnemec",
         "Lastmod",
-        "peaceiris"
+        "peaceiris",
+        "websockets"
     ]
 }
