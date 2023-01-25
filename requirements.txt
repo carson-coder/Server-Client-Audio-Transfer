@@ -1,2 +1,7 @@
-webhooks
+websockets
 asyncio
+soundfile
+simpleaudio
+threading
+aiortc
+gc
